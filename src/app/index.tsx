@@ -9,7 +9,7 @@ export default function Index() {
   const headerHeight = useHeaderHeight();
   const route = useRoute();
   return (
-    <View style={[stylesHome.container, { marginTop: headerHeight + 90 }]}>
+    <View style={[stylesHome.container, { marginTop: headerHeight + 40 }]}>
       <Image style={stylesHome.image} source={assets.images.splash} />
       <Text style={stylesHome.title}>Bem vindo ao Mensagiro</Text>
 
@@ -19,7 +19,84 @@ export default function Index() {
           carregado seu número no Martin's. Nesse caso, eles poderão ver você em
           seus contatos após você se inscrever.
         </Text>
-        <Link href={"/#"} asChild style={stylesHome.buttonLearnMore}></Link>
+        <Link href={"/#"} asChild style={stylesHome.buttonLearnMore}>
+          <Text style={stylesHome.titleLearnMore}>Saiba mais</Text>
+        </Link>
+      </View>
+
+      <View style={stylesHome.infoContainer}>
+        <Text style={[stylesHome.titleInfo, { color: colors.BLACK }]}>
+          Leia nossa{" "}
+          <Link
+            style={stylesHome.buttonLearnMore}
+            href={"/(modal)/PolicyAndPrivacity"}
+            asChild
+          >
+            <Text style={{ color: colors_neutrals.RED }}>
+              Politica e Privacidade{" "}
+            </Text>
+          </Link>
+          toque em{" "}
+          <Text style={{ fontWeight: "bold" }}>Concordar e continuar </Text>
+          para aceitar os{" "}
+          <Link
+            style={stylesHome.buttonLearnMore}
+            href={"/(modal)/TermrsAndService"}
+            asChild
+          >
+            <Text style={{ color: colors_neutrals.RED }}>
+              termos e serviços.{" "}
+            </Text>
+          </Link>
+        </Text>
+      </View>
+
+      <Pressable
+        style={{
+          padding: 10,
+          marginTop: 60,
+          borderWidth: 1,
+          borderRadius: 50,
+          borderColor: colors_neutrals.RED,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 15,
+            fontWeight: "400",
+            color: colors_neutrals.RED,
+          }}
+        >
+          Concordar e Continuar
+        </Text>
+      </Pressable>
+
+      <View
+        style={{
+          marginTop: "auto",
+          marginBottom: 20,
+          alignItems: "center",
+          flexDirection: "row",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "300",
+            color: colors.GRAY_400,
+          }}
+        >
+          Desenvolvedor{" "}
+        </Text>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "600",
+            color: colors_neutrals.RED,
+          }}
+        >
+          Lucas de Souza
+        </Text>
       </View>
     </View>
   );
@@ -53,7 +130,7 @@ export const stylesHome = StyleSheet.create({
   },
   buttonLearnMore: {
     right: 8,
-    bottom: 0,
+    bottom: -15,
     position: "absolute",
   },
   titleLearnMore: {
