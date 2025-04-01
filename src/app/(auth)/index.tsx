@@ -1,23 +1,17 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  Pressable,
-  Image,
-  StatusBar,
-} from "react-native";
-import { colors, colors_neutrals, fontSize } from "../constants/colors";
-import { useHeaderHeight } from "@react-navigation/elements";
+import { Text, View, StyleSheet, Pressable, Image } from "react-native";
 
-import { Link, useRouter } from "expo-router";
-import { assets } from "../assets";
+import { useHeaderHeight } from "@react-navigation/elements";
+import { useRoute } from "@react-navigation/native";
+
+import { Link } from "expo-router";
+import { colors, colors_neutrals } from "@/src/constants/colors";
+import { assets } from "@/src/assets";
 
 export default function Index() {
   const headerHeight = useHeaderHeight();
-  const route = useRouter();
+  const route = useRoute();
   return (
     <View style={[stylesHome.container, { marginTop: headerHeight + 40 }]}>
-      <StatusBar barStyle="dark-content" />
       <Image style={stylesHome.image} source={assets.images.splash} />
       <Text style={stylesHome.title}>Bem vindo ao Mensagiro</Text>
 
@@ -67,7 +61,6 @@ export default function Index() {
           borderRadius: 50,
           borderColor: colors_neutrals.RED,
         }}
-        onPress={() => route.replace("/(auth)/(signup)/signup")}
       >
         <Text
           style={{
