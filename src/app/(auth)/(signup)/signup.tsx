@@ -1,5 +1,7 @@
 import { assets } from "@/src/assets";
+import CustonNotification from "@/src/components/CustomNotification";
 import { colors, colors_neutrals } from "@/src/constants/colors";
+import { Link, router } from "expo-router";
 import { useState } from "react";
 import {
     View,
@@ -14,8 +16,39 @@ const SignUpScreen = () => {
     const [country, setCountry] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [notification, setNotification] = useState(false);
+
+    async function onSignIn() {
+        if (phoneNumber.length === 0 || country.length === 0) {
+            return;
+        }
+        setNotification(true);
+    }
+
+    function handleOnCancel() {
+        setNotification(false);
+    }
+    function handleOnConfirm() {
+        setNotification(false);
+
+        const fullPhoneNumber = `${country}${phoneNumber}`;
+        router.push({
+            pathname: "/(auth)/(signup)/verify",
+            params: {
+                phone: fullPhoneNumber,
+                signin: "true",
+            },
+        });
+    }
     return (
         <View style={signupStyles.container}>
+            <CustonNotification
+                message=""
+                onCancel={handleOnCancel}
+                onConfirm={handleOnConfirm}
+                phoneNumber=""
+                visible={true}
+                infoMessage=""
+            />
             <View style={signupStyles.content}>
                 <Text style={signupStyles.contentInfoTitle}>
                     Mensageiro precisará verificar seu numero de telefone,
@@ -72,6 +105,25 @@ const SignUpScreen = () => {
                         />
                     </View>
                 </View>
+
+                <Text style={signupStyles.information}>
+                    Voce deve ter{" "}
+                    <Text
+                        style={{
+                            fontWeight: "500",
+                            color: colors_neutrals.RED,
+                        }}
+                    >
+                        Pelo menos 16 anos de idade{" "}
+                    </Text>
+                    para criar uma conta. saiba mas sobre nossa
+                    <Link href={"/#"} asChild>
+                        <Text style={signupStyles.titleCompany}>
+                            {" "}
+                            Companhia Mensageiro
+                        </Text>
+                    </Link>
+                </Text>
             </View>
         </View>
     );
