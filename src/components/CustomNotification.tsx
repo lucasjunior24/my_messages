@@ -30,7 +30,7 @@ const CustonNotification = ({
                     <Text style={styleModal.message}>
                         {message.toLocaleUpperCase()}
                     </Text>
-                    <Text style={styleModal.phoneNumber}>{phoneNumber}</Text>
+                    <Text style={styleModal.phoneNumber}>{phoneNumber} </Text>
                     <Text style={styleModal.infoMessageTitle}>
                         {infoMessage}
                     </Text>
@@ -43,8 +43,22 @@ const CustonNotification = ({
                                     borderRightColor: colors.GRAY_200,
                                 },
                             ]}
+                            onPress={onCancel}
+                        >
+                            <Text style={styleModal.buttonText}>Cancelar</Text>
+                        </Pressable>
+                        <Pressable
+                            style={[
+                                styleModal.button,
+                                {
+                                    borderRightWidth: 1,
+                                    borderRightColor: colors.GRAY_200,
+                                },
+                            ]}
                             onPress={onConfirm}
-                        ></Pressable>
+                        >
+                            <Text style={styleModal.buttonText}>Confirmar</Text>
+                        </Pressable>
                     </View>
                 </View>
             </View>
@@ -93,12 +107,12 @@ const styleModal = StyleSheet.create({
         flex: 1,
         padding: 10,
         borderTopWidth: 1,
-        textAlign: "center",
+        alignItems: "center",
         borderTopColor: colors.GRAY_200,
     },
     buttonText: {
         fontSize: 16,
-        color: colors.BLACK,
+        color: colors.GRAY_800,
     },
 });
 

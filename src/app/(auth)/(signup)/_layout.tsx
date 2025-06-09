@@ -7,16 +7,12 @@ const SignUpLayout = () => {
                 name="signup"
                 options={{
                     title: "Seu número de telefone",
-                    headerBackVisible: false,
-                    headerTitleAlign: "center",
                 }}
             />
             <Stack.Screen
                 name="verify"
                 options={{
                     title: "Confirme seu codigo",
-                    headerBackVisible: false,
-                    headerTitleAlign: "center",
                 }}
             />
         </Stack>

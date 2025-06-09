@@ -1,7 +1,7 @@
 import { assets } from "@/src/assets";
 import CustonNotification from "@/src/components/CustomNotification";
 import { colors, colors_neutrals } from "@/src/constants/colors";
-import { Link, router } from "expo-router";
+import { Link, router, Stack } from "expo-router";
 import { useState } from "react";
 import {
     View,
@@ -41,13 +41,37 @@ const SignUpScreen = () => {
     }
     return (
         <View style={signupStyles.container}>
+            <Stack.Screen
+                options={{
+                    headerBackVisible: false,
+                    headerRight: () => {
+                        return (
+                            <Pressable onPress={onSignIn}>
+                                <Text
+                                    style={{
+                                        fontSize: 12,
+                                        fontWeight: "400",
+                                        color:
+                                            phoneNumber.length > 0 &&
+                                            country.length > 0
+                                                ? colors_neutrals.RED
+                                                : colors.GRAY_600,
+                                    }}
+                                >
+                                    Feito
+                                </Text>
+                            </Pressable>
+                        );
+                    },
+                }}
+            />
             <CustonNotification
-                message=""
+                visible={notification}
+                message="Confirmar seu numero de telefone"
                 onCancel={handleOnCancel}
                 onConfirm={handleOnConfirm}
-                phoneNumber=""
-                visible={true}
-                infoMessage=""
+                phoneNumber={`${country} ${phoneNumber}`}
+                infoMessage="Seu número de telefone acima está correto?"
             />
             <View style={signupStyles.content}>
                 <Text style={signupStyles.contentInfoTitle}>

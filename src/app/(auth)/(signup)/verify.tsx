@@ -1,5 +1,9 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
-export function VerifyScreen() {
-    return <View></View>;
+export default function VerifyScreen() {
+    return (
+        <View>
+            <Text>Verify</Text>
+        </View>
+    );
 }
