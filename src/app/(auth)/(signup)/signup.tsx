@@ -52,8 +52,7 @@ const SignUpScreen = () => {
                                         fontSize: 12,
                                         fontWeight: "400",
                                         color:
-                                            phoneNumber.length > 0 &&
-                                            country.length > 0
+                                            phoneNumber.length && country.length
                                                 ? colors_neutrals.RED
                                                 : colors.GRAY_600,
                                     }}

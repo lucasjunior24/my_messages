@@ -7,6 +7,9 @@
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
+    "splash": {
+        "image": "./src/assets/image/splash.png"
+    },
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
