@@ -108,6 +108,7 @@ const SignUpScreen = () => {
                             }}
                             autoCorrect={false}
                             placeholder="+55"
+                            maxLength={2}
                             returnKeyType="next"
                             keyboardType="numeric"
                             value={country}
